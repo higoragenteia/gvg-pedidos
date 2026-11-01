@@ -23,7 +23,7 @@ O sistema, a planilha, os pedidos e a gestão continuam no Google Apps Script da
 - `index.html` — shell em tela cheia + iframe + instalação + instruções iOS/Android.
 - `manifest.webmanifest` — nome, ícones, cores, `standalone`, `start_url` e `scope`.
 - `sw.js` — service worker com versionamento de cache.
-- `icone-180.png`, `icone-192.png`, `icone-512.png` — ícones do Almoxarifado.
+- `icone-180-pedidos-v3.png`, `icone-192-pedidos-v3.png`, `icone-512-pedidos-v3.png` — ícones do app.
 - `.nojekyll` — necessário para GitHub Pages.
 
 ## Instalação
@@ -35,12 +35,18 @@ Abra a URL do GitHub Pages no Chrome e use **📲 Instalar** no canto inferior d
 ### iPhone
 
 No Safari, abra a URL do GitHub Pages e use **Compartilhar → Adicionar à Tela de Início**.
+O atalho permanece no GitHub Pages e abre o Apps Script no iframe, sem a faixa azul do Google.
 
-> Se o Safari bloquear o login dentro do iframe, use o link
-> **Problemas para abrir? Toque aqui** no canto inferior esquerdo.
+Se o atalho antigo ainda mostrar o ícone anterior, apague-o da Tela de Início e adicione de novo,
+pois o iOS mantém o ícone em cache. Os arquivos `icone-*-pedidos-v3.png` foram versionados para
+forçar a troca.
+
+> A implantação do Apps Script precisa estar como **Qualquer pessoa** (acesso anônimo) e o app
+> usa o login próprio de usuário/senha. Assim o Google não abre a tela de login dentro do iframe.
+> O link **Problemas para abrir? Toque aqui** só aparece após 15 segundos sem carregamento.
 
 ## Atualizações
 
-O service worker usa `CACHE = 'gvg-pedidos-pwa-v1'`. Ao publicar uma nova versão do shell,
+O service worker usa `CACHE = 'gvg-pedidos-pwa-v2'`. Ao publicar uma nova versão do shell,
 incremente esse valor. O conteúdo do Apps Script é atualizado pelo próprio Apps Script; os
 funcionários não precisam reinstalar o PWA.

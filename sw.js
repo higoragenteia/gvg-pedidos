@@ -1,12 +1,12 @@
 /* GVG & ARTEFAL — PWA Pedidos */
-const CACHE = 'gvg-pedidos-pwa-v1';
+const CACHE = 'gvg-pedidos-pwa-v2';
 const SHELL = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './icone-180.png',
-  './icone-192.png',
-  './icone-512.png'
+  './icone-180-pedidos-v3.png',
+  './icone-192-pedidos-v3.png',
+  './icone-512-pedidos-v3.png'
 ];
 
 self.addEventListener('install', event => {

@@ -10,8 +10,8 @@
   <meta name="apple-mobile-web-app-title" content="PEDIDOS">
   <title>GVG&amp;ARTEFAL — PEDIDOS</title>
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" type="image/png" href="./icone-192.png">
-  <link rel="apple-touch-icon" href="./icone-180.png">
+  <link rel="icon" type="image/png" href="./icone-192-pedidos-v3.png">
+  <link rel="apple-touch-icon" sizes="180x180" type="image/png" href="./icone-180-pedidos-v3.png">
   <style>
     :root{color-scheme:light;--teal:#0b3545;--teal2:#087e74}
     *{box-sizing:border-box}
@@ -25,6 +25,7 @@
       box-shadow:0 10px 28px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.22);cursor:pointer;
     }
     .install-btn.hidden{display:none!important}
+    .open-fallback.hide{display:none!important}
     .open-fallback{
       position:fixed;left:12px;bottom:calc(88px + env(safe-area-inset-bottom));z-index:2147483646;
       background:rgba(11,53,69,.72);color:#eaf6f4;border:1px solid rgba(255,255,255,.18);
@@ -53,7 +54,7 @@
     <iframe id="appFrame" title="GVG &amp; ARTEFAL — Pedidos" allow="clipboard-read; clipboard-write; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
 
-  <a id="openFallback" class="open-fallback" href="#" target="_blank" rel="noopener">Problemas para abrir? Toque aqui</a>
+  <a id="openFallback" class="open-fallback hide" href="#" target="_blank" rel="noopener">Problemas para abrir? Toque aqui</a>
   <button id="installBtn" class="install-btn" type="button">📲 Instalar</button>
 
   <div id="helpModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
@@ -79,6 +80,14 @@
       var helpSteps = document.getElementById('helpSteps');
       var openFallback = document.getElementById('openFallback');
       var helpOpen = document.getElementById('helpOpen');
+      var fallbackTimer = setTimeout(function(){ openFallback.classList.remove('hide'); }, 15000);
+      frame.addEventListener('load', function(){ clearTimeout(fallbackTimer); openFallback.classList.add('hide'); });
+      window.addEventListener('message', function(event){
+        if(event.data && event.data.type === 'gvg-pedidos-login' && event.data.logged){
+          clearTimeout(fallbackTimer);
+          openFallback.classList.add('hide');
+        }
+      });
       frame.src = APP_URL;
       openFallback.href = APP_URL;
       helpOpen.href = APP_URL;
