@@ -43,6 +43,7 @@ forçar a troca.
 
 > A implantação do Apps Script precisa estar como **Qualquer pessoa** (acesso anônimo) e o app
 > usa o login próprio de usuário/senha. Assim o Google não abre a tela de login dentro do iframe.
+> O catálogo é público; pedidos, histórico e gestão continuam exigindo login/aprovação.
 > O link **Problemas para abrir? Toque aqui** só aparece após 15 segundos sem carregamento.
 
 ## Atualizações
