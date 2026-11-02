@@ -48,6 +48,6 @@ forçar a troca.
 
 ## Atualizações
 
-O service worker usa `CACHE = 'gvg-pedidos-pwa-v2'`. Ao publicar uma nova versão do shell,
+O service worker usa `CACHE = 'gvg-pedidos-pwa-v3'`. Ao publicar uma nova versão do shell,
 incremente esse valor. O conteúdo do Apps Script é atualizado pelo próprio Apps Script; os
 funcionários não precisam reinstalar o PWA.
